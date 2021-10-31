@@ -1,4 +1,5 @@
 # LeetCode Mistake Tracker Chrome Extension
+[![Docker Image CI](https://github.com/arch-org/mistake/actions/workflows/docker-image.yml/badge.svg)](https://github.com/arch-org/mistake/actions/workflows/docker-image.yml)
 
 This is a Chrome Extensions to help LeetCode users keep track of the LeetCode questions they would like to re-do in the future.
 
