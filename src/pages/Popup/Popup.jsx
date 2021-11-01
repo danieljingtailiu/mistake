@@ -35,7 +35,7 @@ function ISOStringToDate(ISOString) {
 }
 
 function diffInDays(startDate, endDate) {
-  const diffInMs = new Date(endDate) - new Date(startDate)
+  const diffInMs = new Date(endDate) - new Date(startDate);
   const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
   return Math.floor(diffInDays);
 }
@@ -100,7 +100,10 @@ class Popup extends Component {
       const lastSlash = displayTitle.lastIndexOf('/');
       displayTitle = displayTitle.slice(lastSlash + 1);
       const today = new Date().toISOString();
-      let daysAway = diffInDays(ISOStringToDate(today), ISOStringToDate(redo.reminderDate));
+      let daysAway = diffInDays(
+        ISOStringToDate(today),
+        ISOStringToDate(redo.reminderDate)
+      );
       const avatarBgColor = daysAway <= 0 ? red[700] : green[700];
       return (
         <ListItem
@@ -108,7 +111,10 @@ class Popup extends Component {
           button
           component="a"
           href={redo.uri}
-          onClick={(e) => { chrome.tabs.update({ url: redo.uri }); e.preventDefault(); }}
+          onClick={(e) => {
+            chrome.tabs.update({ url: redo.uri });
+            e.preventDefault();
+          }}
         >
           <ListItemAvatar>
             <Avatar sx={{ bgcolor: avatarBgColor }}>
@@ -117,7 +123,9 @@ class Popup extends Component {
           </ListItemAvatar>
           <ListItemText
             primary={displayTitle}
-            secondary={daysAway <= 0 ? 'Time to re-do!' : `${daysAway} days away`}
+            secondary={
+              daysAway <= 0 ? 'Time to re-do!' : `${daysAway} days away`
+            }
           />
           <ListItemSecondaryAction>
             <IconButton
@@ -125,7 +133,7 @@ class Popup extends Component {
               aria-label="delete"
               onClick={(e) => {
                 e.preventDefault();
-                this.removebyid(redo.id)
+                this.removebyid(redo.id);
               }}
             >
               <DeleteIcon />
@@ -144,7 +152,7 @@ class Popup extends Component {
           <List
             dense={false}
             style={{ maxHeight: '100%', overflow: 'auto' }}
-          // subheader={<ListSubheader>Problem List</ListSubheader>}
+            // subheader={<ListSubheader>Problem List</ListSubheader>}
           >
             {itemsList}
           </List>

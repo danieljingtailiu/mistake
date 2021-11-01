@@ -1,5 +1,3 @@
-
-
 // const main = () => {
 //     chrome.storage.sync.get('data', function (items) {
 //       let redos = items.data;
@@ -15,14 +13,14 @@
 //               message: "Primary message to display",
 //               iconUrl: "url_to_small_icon"
 //             }
-            
+
 //             chrome.notifications.create(redos[i].uri, opt);
 //             return;
 //           }
 //         }
 //     });
 //   }
-  
+
 //   main();
 // console.log("Please wait...");
 // chrome.runtime.onInstalled.addListener((reason) => {

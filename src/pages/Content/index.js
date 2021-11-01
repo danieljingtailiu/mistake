@@ -4,7 +4,6 @@ import { isToday, isPast } from './../../helper';
 printLine('Content Script loaded');
 
 const timeValue = setInterval(function () {
-
   var nodeList = document.querySelectorAll('[data-cy="submit-wrong-result"]');
   if (nodeList.length > 0) {
     var button = document.createElement('button');
@@ -45,13 +44,11 @@ const timeValue = setInterval(function () {
         redo.id = redos.length + 1;
         redos.push(redo);
         redos.sort(function (a, b) {
-          return new Date(a.reminderDate) - new Date(b.reminderDate)
-        })
+          return new Date(a.reminderDate) - new Date(b.reminderDate);
+        });
         chrome.storage.sync.set({ data: redos });
         theButton.style.display = 'none';
       });
-    }
-    );
+    });
   }
 }, 3000);
-
