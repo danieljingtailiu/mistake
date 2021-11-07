@@ -96,7 +96,10 @@ class Popup extends Component {
 
   render() {
     const itemsList = this.state.data.map((redo) => {
-      let displayTitle = redo.uri.slice(0, -13);
+      const redoURI = redo.uri;
+      const spliceStart = redoURI.indexOf('problems/') + 'problems/'.length;
+      const spliceEnd = redoURI.indexOf('/', spliceStart);
+      let displayTitle = redo.uri.slice(spliceStart, spliceEnd);
       const lastSlash = displayTitle.lastIndexOf('/');
       displayTitle = displayTitle.slice(lastSlash + 1);
       const today = new Date().toISOString();
