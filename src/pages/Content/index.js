@@ -4,13 +4,15 @@ import { isToday, isPast } from './../../helper';
 printLine('Content Script loaded');
 
 const timeValue = setInterval(function () {
-  var nodeList = document.querySelectorAll('[data-cy="submit-wrong-result"]');
+  var nodeList = document.querySelectorAll('[data-cy="question-detail-main-tabs"]');
   if (nodeList.length > 0) {
     var button = document.createElement('button');
-    button.innerHTML = 'Re-do in 3 days';
+    button.innerHTML = 'Re-do';
     button.id = 'redoButton';
     button.type = 'button';
-    nodeList[0].appendChild(button);
+    button.style.height = '40px';
+    button.style.width = '80px';
+    nodeList[0].children[0].appendChild(button);
     clearInterval(timeValue);
 
     var theButton = document.getElementById('redoButton');
@@ -25,8 +27,6 @@ const timeValue = setInterval(function () {
 
     theButton.addEventListener('click', function () {
       chrome.storage.sync.get('data', function (items) {
-        printLine('items');
-        console.log(items);
         let redos;
         if (Object.keys(items).length === 0) {
           printLine('items is empty');
@@ -51,4 +51,4 @@ const timeValue = setInterval(function () {
       });
     });
   }
-}, 3000);
+}, 1000);
