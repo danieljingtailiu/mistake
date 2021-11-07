@@ -17,7 +17,7 @@ const timeValue = setInterval(function () {
     var theButton = document.getElementById('redoButton');
 
     let reminderDate = new Date();
-    reminderDate.setDate(reminderDate.getDate() + 4); // TODO: add a dropdown after redo button, to set the reminder date
+    reminderDate.setDate(reminderDate.getDate() + 3); // TODO: add a dropdown after redo button, to set the reminder date
     const redo = {
       uri: window.location.href.toString(),
       record: new Date().toLocaleString(),
