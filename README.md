@@ -80,7 +80,7 @@ Now, the content of `build` folder will be the extension ready to be submitted t
         <a href="https://github.com/architec">
             <img src="https://avatars.githubusercontent.com/u/32494274?v=4" width="50;" alt="architec"/>
             <br />
-            <sub><b>architec</b></sub>
+            <sub><b>Architec</b></sub>
         </a>
     </td>
     <td align="center">
@@ -115,7 +115,7 @@ Now, the content of `build` folder will be the extension ready to be submitted t
         <a href="https://github.com/lakshya8066">
             <img src="https://avatars.githubusercontent.com/u/73181332?v=4" width="50;" alt="lakshya8066"/>
             <br />
-            <sub><b>lakshya8066</b></sub>
+            <sub><b>Lakshya8066</b></sub>
         </a>
     </td></tr>
 <tr>
