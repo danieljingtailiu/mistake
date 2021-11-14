@@ -59,19 +59,17 @@ $ NODE_ENV=production npm run build
 
 Now, the content of `build` folder will be the extension ready to be submitted to the Chrome Web Store. Just take a look at the [official guide](https://developer.chrome.com/webstore/publish) to more infos about publishing.
 
-## Collaborators
-<!-- readme: collaborators -start -->
+## Maintainers
 <table>
 <tr>
     <td align="center">
-        <a href="https://github.com/arctdav">
-            <img src="https://avatars.githubusercontent.com/u/93011580?v=4" width="50;" alt="arctdav"/>
+        <a href="https://github.com/architec">
+            <img src="https://avatars.githubusercontent.com/u/32494274?v=4" width="50;" alt="architec"/>
             <br />
-            <sub><b>Arctdav</b></sub>
+            <sub><b>architec</b></sub>
         </a>
     </td></tr>
 </table>
-<!-- readme: collaborators -end -->
 
 ## Contributors
 
