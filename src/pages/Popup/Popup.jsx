@@ -22,6 +22,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import DeleteIcon from '@mui/icons-material/Delete';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { ListItemSecondaryAction } from '@mui/material';
 
 // helper functions
@@ -148,12 +149,22 @@ class Popup extends Component {
           <List
             dense={false}
             style={{ maxHeight: '100%', overflow: 'auto' }}
-            // subheader={<ListSubheader>Problem List</ListSubheader>}
           >
             {itemsList}
           </List>
+          <div class="footer" >
+          <IconButton
+              edge="end"
+              size="small"
+              aria-label="delete"
+              onClick={(e) => { chrome.tabs.update({url: 'https://github.com/arch-org/mistake'});e.preventDefault();}}
+            >
+              <GitHubIcon style={{fontSize: 'xx-small'}} />
+            </IconButton>
+          </div>
         </header>
       </div>
+      
     );
   }
 }
