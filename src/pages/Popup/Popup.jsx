@@ -24,21 +24,9 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { ListItemSecondaryAction } from '@mui/material';
 
-function WithoutTime(dateTime) {
-  var date = new Date(dateTime);
-  date.setHours(0, 0, 0, 0);
-  return date;
-}
+// helper functions
+import { getTitleFromUrl } from '../../helper';
 
-function ISOStringToDate(ISOString) {
-  return ISOString.slice(0, 10);
-}
-
-function diffInDays(startDate, endDate) {
-  const diffInMs = new Date(endDate) - new Date(startDate);
-  const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
-  return Math.floor(diffInDays);
-}
 
 class Popup extends Component {
   constructor(props) {
@@ -97,17 +85,22 @@ class Popup extends Component {
   render() {
     const itemsList = this.state.data.map((redo) => {
       const redoURI = redo.uri;
-      const spliceStart = redoURI.indexOf('problems/') + 'problems/'.length;
-      const spliceEnd = redoURI.indexOf('/', spliceStart);
-      let displayTitle = redo.uri.slice(spliceStart, spliceEnd);
-      const lastSlash = displayTitle.lastIndexOf('/');
-      displayTitle = displayTitle.slice(lastSlash + 1);
-      const today = new Date().toISOString();
-      let daysAway = diffInDays(
-        ISOStringToDate(today),
-        ISOStringToDate(redo.reminderDate)
-      );
-      const avatarBgColor = daysAway <= 0 ? red[700] : green[700];
+      const today = new Date();
+
+      var delta = (new Date(redo.reminderDate) - today) / 1000;
+      // calculate (and subtract) whole days
+      var days = Math.floor(delta / 86400);
+      delta -= days * 86400;
+      // calculate (and subtract) whole hours
+      var hours = Math.floor(delta / 3600) % 24;
+      delta -= hours * 3600;
+      // calculate (and subtract) whole minutes
+      var minutes = Math.floor(delta / 60) % 60;
+      delta -= minutes * 60;
+      // what's left is seconds
+      var seconds = delta % 60;
+
+      const avatarBgColor = (new Date(redo.reminderDate) - today) <= 0 ? red[700] : green[700];
       return (
         <ListItem
           key={redo.id}
@@ -125,9 +118,9 @@ class Popup extends Component {
             </Avatar>
           </ListItemAvatar>
           <ListItemText
-            primary={displayTitle}
+            primary={redo.id}
             secondary={
-              daysAway <= 0 ? 'Time to re-do!' : `${daysAway} days away`
+              (new Date(redo.reminderDate) - today) <= 0 ? 'Time to re-do!' : `${days} days ${hours} hours`
             }
           />
           <ListItemSecondaryAction>

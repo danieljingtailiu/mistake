@@ -1,5 +1,5 @@
 import { printLine } from './modules/print';
-import { isToday, isPast } from './../../helper';
+import { getTitleFromUrl } from './../../helper'
 
 printLine('Content Script loaded');
 
@@ -28,20 +28,21 @@ const timeValue = setInterval(function () {
     theButton.addEventListener('click', function () {
       chrome.storage.sync.get('data', function (items) {
         let redos;
+        const title = getTitleFromUrl(redo.uri);
         if (Object.keys(items).length === 0) {
           printLine('items is empty');
           redos = [];
         } else {
           redos = items.data;
           for (let i = 0; i < redos.length; i++) {
-            console.log(redos[i].uri === redo.uri);
-            if (redos[i].uri === redo.uri) {
+            if (redos[i].id === title) {
               alert('You already marked this question');
               return;
             }
           }
         }
-        redo.id = redos.length + 1;
+        // redo.id = redos.length + 1;
+        redo.id = title;
         redos.push(redo);
         redos.sort(function (a, b) {
           return new Date(a.reminderDate) - new Date(b.reminderDate);
