@@ -48,7 +48,7 @@ const timeValue = setInterval(function () {
           return new Date(a.reminderDate) - new Date(b.reminderDate);
         });
         chrome.storage.sync.set({ data: redos });
-        theButton.style.display = 'none';
+        // theButton.style.display = 'none';
       });
     });
   }
