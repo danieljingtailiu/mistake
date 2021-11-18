@@ -23,6 +23,7 @@ import Typography from '@mui/material/Typography';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import DeleteIcon from '@mui/icons-material/Delete';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import { ListItemSecondaryAction } from '@mui/material';
 
 // helper functions
@@ -153,18 +154,33 @@ class Popup extends Component {
             {itemsList}
           </List>
           <div class="footer" >
-          <IconButton
+            <IconButton
               edge="end"
               size="small"
               aria-label="delete"
-              onClick={(e) => { chrome.tabs.update({url: 'https://github.com/arch-org/mistake'});e.preventDefault();}}
+              onClick={(e) => { chrome.tabs.update({ url: 'https://github.com/arch-org/mistake' }); e.preventDefault(); }}
             >
-              <GitHubIcon style={{fontSize: 'xx-small'}} />
+              <GitHubIcon style={{ fontSize: 'xx-small' }} />
+            </IconButton>
+            <IconButton
+              edge="end"
+              size="small"
+              aria-label="delete"
+              onClick={(e) => { chrome.tabs.update({ url: 'https://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/' }); e.preventDefault(); }}
+            >
+              <AccountTreeIcon style={{ fontSize: 'xx-small' }} />
+            </IconButton>
+            <IconButton
+              edge="end"
+              size="small"
+              aria-label="delete"
+              onClick={(e) => { chrome.tabs.update({ url: 'https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions' }); e.preventDefault(); }}
+            >
+              <AccountTreeIcon style={{ fontSize: 'xx-small' }} />
             </IconButton>
           </div>
         </header>
       </div>
-      
     );
   }
 }
