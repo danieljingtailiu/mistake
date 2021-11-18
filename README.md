@@ -129,6 +129,13 @@ Now, the content of `build` folder will be the extension ready to be submitted t
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Reedham20">
+            <img src="https://avatars.githubusercontent.com/u/83637769?v=4" width="50;" alt="Reedham20"/>
+            <br />
+            <sub><b>Reedham20</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/Sukhija-Aniket">
             <img src="https://avatars.githubusercontent.com/u/79650434?v=4" width="50;" alt="Sukhija-Aniket"/>
             <br />
@@ -155,7 +162,8 @@ Now, the content of `build` folder will be the extension ready to be submitted t
             <br />
             <sub><b>Arctdav</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/ghousahmed">
             <img src="https://avatars.githubusercontent.com/u/25761034?v=4" width="50;" alt="ghousahmed"/>
