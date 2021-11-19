@@ -24,4 +24,6 @@ code {
   text-align: center;
   font-size: xx-small;
   position: absolute;
+  display: flex;
+  justify-content: space-around;
 }

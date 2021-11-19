@@ -154,6 +154,7 @@ class Popup extends Component {
             {itemsList}
           </List>
           <div class="footer" >
+            <div>
             <IconButton
               edge="end"
               size="small"
@@ -161,7 +162,8 @@ class Popup extends Component {
               onClick={(e) => { chrome.tabs.update({ url: 'https://github.com/arch-org/mistake' }); e.preventDefault(); }}
             >
               <GitHubIcon style={{ fontSize: 'xx-small' }} />
-            </IconButton>
+            </IconButton></div>
+            <div>
             <IconButton
               edge="end"
               size="small"
@@ -177,7 +179,7 @@ class Popup extends Component {
               onClick={(e) => { chrome.tabs.update({ url: 'https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions' }); e.preventDefault(); }}
             >
               <AccountTreeIcon style={{ fontSize: 'xx-small' }} />
-            </IconButton>
+            </IconButton></div>
           </div>
         </header>
       </div>
