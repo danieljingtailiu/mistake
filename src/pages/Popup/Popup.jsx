@@ -29,25 +29,25 @@ import { ListItemSecondaryAction } from '@mui/material';
 // helper functions
 import { getTitleFromUrl } from '../../helper';
 
-
 class Popup extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
-
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = { data: [], daysInput: 3 };
     this.removebyid = this.removebyid.bind(this);
 
     chrome.storage.sync.get(
-      'data',
+      null,
       function (items) {
-        if (Object.keys(items).length > 0) {
+        if (items.hasOwnProperty('data')) {
           this.setState({ data: items.data });
-          console.log(this.state);
+        }
+        if (items.hasOwnProperty('timerDays')) {
+          this.setState({ daysInput: items.timerDays });
         }
       }.bind(this)
     );
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   removebyid(id) {
@@ -84,6 +84,12 @@ class Popup extends Component {
     );
   }
 
+  handleSubmit(event) {
+    alert('Saved the number of days for timer: ' + this.state.daysInput);
+    chrome.storage.sync.set({ timerDays: this.state.daysInput });
+    event.preventDefault();
+  }
+
   render() {
     const itemsList = this.state.data.map((redo) => {
       const redoURI = redo.uri;
@@ -102,7 +108,8 @@ class Popup extends Component {
       // what's left is seconds
       var seconds = delta % 60;
 
-      const avatarBgColor = (new Date(redo.reminderDate) - today) <= 0 ? red[700] : green[700];
+      const avatarBgColor =
+        new Date(redo.reminderDate) - today <= 0 ? red[700] : green[700];
       return (
         <ListItem
           key={redo.id}
@@ -122,7 +129,9 @@ class Popup extends Component {
           <ListItemText
             primary={redo.id}
             secondary={
-              (new Date(redo.reminderDate) - today) <= 0 ? 'Time to re-do!' : `${days} days ${hours} hours`
+              new Date(redo.reminderDate) - today <= 0
+                ? 'Time to re-do!'
+                : `${days} days ${hours} hours`
             }
           />
           <ListItemSecondaryAction>
@@ -144,31 +153,74 @@ class Popup extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Typography variant="h6" component="div">
-            LeetCode List
-          </Typography>
-          <List
-            dense={false}
-            style={{ maxHeight: '100%', overflow: 'auto' }}
-          >
+          <div className="Title-bar">
+            <form onSubmit={this.handleSubmit}>
+              <label style={{ fontSize: '10px' }}>
+                <input
+                  type="text"
+                  pattern="[0-9]*"
+                  style={{ width: '30px' }}
+                  onChange={(event) =>
+                    this.setState({
+                      daysInput: event.target.value.replace(/\D/, ''),
+                    })
+                  }
+                  value={this.state.daysInput}
+                />
+              </label>
+              <input type="submit" value="d" style={{ fontSize: 'smaller' }} />
+            </form>
+            <Typography variant="subtitle2" component="div">
+              LeetCode List
+            </Typography>
+            <div>
+              <IconButton
+                edge="end"
+                size="large"
+                aria-label="delete"
+                onClick={(e) => {
+                  chrome.tabs.update({
+                    url: 'https://github.com/arch-org/mistake',
+                  });
+                  e.preventDefault();
+                }}
+              >
+                <GitHubIcon style={{ fontSize: 'large' }} />
+              </IconButton>
+            </div>
+          </div>
+          <List dense={false} style={{ maxHeight: '100%', overflow: 'auto' }}>
             {itemsList}
           </List>
-          <div class="footer" >
-            <div>
+        </header>
+
+        <div class="footer">
+          <div>
             <IconButton
               edge="end"
               size="small"
               aria-label="delete"
-              onClick={(e) => { chrome.tabs.update({ url: 'https://github.com/arch-org/mistake' }); e.preventDefault(); }}
+              onClick={(e) => {
+                chrome.tabs.update({
+                  url: 'https://github.com/arch-org/mistake',
+                });
+                e.preventDefault();
+              }}
             >
               <GitHubIcon style={{ fontSize: 'xx-small' }} />
-            </IconButton></div>
-            <div>
+            </IconButton>
+          </div>
+          <div>
             <IconButton
               edge="end"
               size="small"
               aria-label="delete"
-              onClick={(e) => { chrome.tabs.update({ url: 'https://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/' }); e.preventDefault(); }}
+              onClick={(e) => {
+                chrome.tabs.update({
+                  url: 'https://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/',
+                });
+                e.preventDefault();
+              }}
             >
               <AccountTreeIcon style={{ fontSize: 'xx-small' }} />
             </IconButton>
@@ -176,12 +228,17 @@ class Popup extends Component {
               edge="end"
               size="small"
               aria-label="delete"
-              onClick={(e) => { chrome.tabs.update({ url: 'https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions' }); e.preventDefault(); }}
+              onClick={(e) => {
+                chrome.tabs.update({
+                  url: 'https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions',
+                });
+                e.preventDefault();
+              }}
             >
               <AccountTreeIcon style={{ fontSize: 'xx-small' }} />
-            </IconButton></div>
+            </IconButton>
           </div>
-        </header>
+        </div>
       </div>
     );
   }

@@ -7,7 +7,7 @@
   text-align: center;
   height: 100%;
   padding: 1px;
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
 }
 
 .App-logo {
@@ -33,6 +33,14 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.Title-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 5px;
 }
 
 @keyframes App-logo-spin {

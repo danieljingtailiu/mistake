@@ -1,7 +1,14 @@
 import { printLine } from './modules/print';
 import { getTitleFromUrl } from './../../helper'
 
-printLine('Content Script loaded');
+let timerDays = 3;
+chrome.storage.sync.get('timerDays',
+  function (items) {
+    if (items.hasOwnProperty('timerDays')) {
+      timerDays = parseInt(items.timerDays);
+    }
+  }
+);
 
 const timeValue = setInterval(function () {
   var nodeList = document.querySelectorAll('[data-cy="question-detail-main-tabs"]');
@@ -18,7 +25,7 @@ const timeValue = setInterval(function () {
     var theButton = document.getElementById('redoButton');
 
     let reminderDate = new Date();
-    reminderDate.setDate(reminderDate.getDate() + 3); // TODO: add a dropdown after redo button, to set the reminder date
+    reminderDate.setDate(reminderDate.getDate() + timerDays);
     const redo = {
       uri: window.location.href.toString(),
       record: new Date().toLocaleString(),
