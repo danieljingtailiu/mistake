@@ -168,7 +168,11 @@ class Popup extends Component {
                   value={this.state.daysInput}
                 />
               </label>
-              <input type="submit" value="d" style={{ fontSize: 'smaller' }} />
+              <input
+                type="submit"
+                value="&#128190;"
+                style={{ fontSize: 'smaller' }}
+              />
             </form>
             <Typography variant="subtitle2" component="div">
               LeetCode List
