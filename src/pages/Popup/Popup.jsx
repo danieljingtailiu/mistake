@@ -24,6 +24,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import DeleteIcon from '@mui/icons-material/Delete';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
+import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
 import { ListItemSecondaryAction } from '@mui/material';
 
 // helper functions
@@ -82,6 +83,11 @@ class Popup extends Component {
         );
       }.bind(this)
     );
+  }
+
+  removeall() {
+    chrome.storage.sync.set({ data: [] });
+    this.setState({ data: [] });
   }
 
   handleSubmit(event) {
@@ -183,13 +189,11 @@ class Popup extends Component {
                 size="large"
                 aria-label="delete"
                 onClick={(e) => {
-                  chrome.tabs.update({
-                    url: 'https://github.com/arch-org/mistake',
-                  });
                   e.preventDefault();
+                  this.removeall();
                 }}
               >
-                <GitHubIcon style={{ fontSize: 'large' }} />
+                <DeleteSweepIcon style={{ fontSize: 'large' }} />
               </IconButton>
             </div>
           </div>
