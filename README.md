@@ -9,8 +9,7 @@ This is a Chrome Extensions to help LeetCode users keep track of the LeetCode qu
 
 After users specified time period, the extension will remind the users to re-do the LeetCode question selected.
 
-Q: Why didn't I use the "add to list" feature from LeetCode?
-
+### Q: Why didn't I use the "add to list" feature from LeetCode?
 A: I would like to sort the questions by the time when it was added, and give me an alert when my timer is up, to re-do this LeetCode question. I didn't find any similar feature from "add to list", so I created a chrome extension for this specific feature.
 
 ## User Installation
