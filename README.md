@@ -2,7 +2,7 @@
 [![Docker Image CI](https://github.com/architec/mistake/actions/workflows/docker-image.yml/badge.svg?branch=main)](https://github.com/architec/mistake/actions/workflows/docker-image.yml)
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/gdkafhifmmkcifpdcfbppiieckgfpjbb.svg)](https://chrome.google.com/webstore/detail/leetcode-mistake-tracker/gdkafhifmmkcifpdcfbppiieckgfpjbb)
 <a href="https://chrome.google.com/webstore/detail/leetcode-mistake-tracker/gdkafhifmmkcifpdcfbppiieckgfpjbb"><img src="https://img.shields.io/chrome-web-store/d/gdkafhifmmkcifpdcfbppiieckgfpjbb.svg" alt="users"></a>
-<a href="https://github.com/architec/mistake/graphs/contributors" alt="Contributors"><img src="https://img.shields.io/github/contributors/arch-org/mistake" /></a>
+<a href="https://github.com/architec/mistake/graphs/contributors" alt="Contributors"><img src="https://img.shields.io/github/contributors/architec/mistake" /></a>
 
 
 This is a Chrome Extensions to help LeetCode users keep track of the LeetCode questions they would like to re-do in the future.
