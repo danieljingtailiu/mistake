@@ -225,7 +225,7 @@ class Popup extends Component {
               aria-label="delete"
               onClick={(e) => {
                 chrome.tabs.update({
-                  url: 'https://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/',
+                  url: 'https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions',
                 });
                 e.preventDefault();
               }}
@@ -238,7 +238,7 @@ class Popup extends Component {
               aria-label="delete"
               onClick={(e) => {
                 chrome.tabs.update({
-                  url: 'https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions',
+                  url: 'https://leetcode.com/tag/dynamic-programming/discuss/1050391/Must-do-Dynamic-programming-Problems-Category-wise',
                 });
                 e.preventDefault();
               }}
