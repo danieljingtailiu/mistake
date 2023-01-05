@@ -21,7 +21,7 @@ Install the extension from [here](https://chrome.google.com/webstore/detail/leet
 This Chrome Extension currently supports:
 
 - **Save the re-do LeetCode questions**
-![wrong_answers.png](/screenshots/wrong_anwser_button_update.png?raw=true)
+![wrong_answers.png](/screenshots/redo_button.png?raw=true)
 - **Show the list of LeetCode questions by extension popup**
 ![popup.png](/screenshots/popup.png?raw=true)
 
