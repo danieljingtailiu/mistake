@@ -28,31 +28,22 @@ This Chrome Extension currently supports:
 
 ## Developer Installing and Running
 
-### Procedures
+### Procedures (Docker)
 
 1. Check if your [Node.js](https://nodejs.org/) version is >= **14**.
 2. Clone this repository.
-3. Change the package's `name`, `description`, and `repository` fields in `package.json`.
-4. Change the name of your extension on `src/manifest.json`.
-5. Run `npm install` or `yarn install` to install the dependencies.
-6. Run `npm start` or `yarn start`
-7. Load your extension on Chrome following:
+3. Run `npm run compose` 
+5. Load your extension on Chrome following:
    1. Access `chrome://extensions/`
    2. Check `Developer mode`
    3. Click on `Load unpacked extension`
    4. Select the `build` folder.
-8. Happy hacking.
+6. Happy hacking.
 
-### Build by Docker
-For step 5 and 6 above, you can use the following
-```sh
-npm run compose
-```
-or
-```sh
-yarn compose
-```
-
+### Build by NPM
+For step 3 above, you can use the following steps instead
+1. Run `npm install` to install the dependencies.
+2. Run `npm start`
 
 ## Packing
 
