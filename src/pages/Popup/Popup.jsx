@@ -210,7 +210,7 @@ class Popup extends Component {
               aria-label="delete"
               onClick={(e) => {
                 chrome.tabs.update({
-                  url: 'https://github.com/architec/mistake',
+                  url: 'https://github.com/arch-org/mistake',
                 });
                 e.preventDefault();
               }}
