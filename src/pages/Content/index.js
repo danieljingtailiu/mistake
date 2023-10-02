@@ -62,7 +62,7 @@ function v1UIGenerateButton() {
 }
 
 function v2UIGenerateButton() {
-  var nodeList = document.querySelectorAll('[class="mr-2 flex flex-1 flex-nowrap items-center space-x-4"]');
+  var nodeList = document.querySelectorAll('[class="flex gap-1"]');
   if (nodeList.length > 0) {
     var button = document.createElement('button');
     button.innerHTML = 'Re-do';
@@ -70,6 +70,9 @@ function v2UIGenerateButton() {
     button.type = 'button';
     button.style.height = '40px';
     button.style.width = '80px';
+    button.style.backgroundColor = "#ffc477";
+    button.style.borderRadius = "11px";
+    button.style.border = "2px solid #eeb44f";
     nodeList[0].appendChild(button);
     clearInterval(timeValue);
 
