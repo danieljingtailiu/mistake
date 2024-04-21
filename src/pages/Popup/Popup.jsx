@@ -209,8 +209,8 @@ class Popup extends Component {
               size="small"
               aria-label="delete"
               onClick={(e) => {
-                chrome.tabs.update({
-                  url: 'https://github.com/arch-org/mistake',
+                chrome.tabs.create({
+                  url: 'https://github.com/architec/mistake',
                 });
                 e.preventDefault();
               }}
@@ -224,8 +224,8 @@ class Popup extends Component {
               size="small"
               aria-label="delete"
               onClick={(e) => {
-                chrome.tabs.update({
-                  url: 'https://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/',
+                chrome.tabs.create({
+                  url: 'https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions',
                 });
                 e.preventDefault();
               }}
@@ -237,8 +237,8 @@ class Popup extends Component {
               size="small"
               aria-label="delete"
               onClick={(e) => {
-                chrome.tabs.update({
-                  url: 'https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions',
+                chrome.tabs.create({
+                  url: 'https://leetcode.com/tag/dynamic-programming/discuss/1050391/Must-do-Dynamic-programming-Problems-Category-wise',
                 });
                 e.preventDefault();
               }}
